@@ -1,0 +1,137 @@
+body {
+  background-color: #212529;
+  color: #e9ecef;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Add spacing between sections */
+}
+
+section {
+  background-color: #343a40;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+#live-feed {
+  width: 640px;
+  height: 480px;
+  border: none; /* Remove the border */
+}
+
+#feed-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#artifact-list {
+  width: 300px;
+  flex-grow: 1; /* Allow it to grow and fill available space */
+}
+
+#artifact-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+#artifact-list li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+}
+
+#artifact-list li:hover {
+  background-color: #495057;
+}
+
+#detection-select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #333;
+  background-color: #282828;
+  color: #eee;
+}
+
+#detection-details {
+  flex-grow: 2; /* Take up more space than the artifact list */
+}
+
+#detection-details img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+#notifications,
+#predictive-maintenance {
+  width: 100%;
+  flex-basis: 100%; /* Ensure these sections take full width */
+}
+
+#notifications ul,
+#predictive-maintenance ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Full-screen styles */
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: #181818;
+  overflow: auto; /* Add scrollbar if content overflows */
+}
+
+.fullscreen:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.fullscreen .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maintenance Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Museum Maintenance Dashboard</h1>
+  </header>
+
+  <main>
+    <section id="live-feed">
+      <h2>Live Feed</h2>
+      <img id="feed-image" src="{{ url_for('static', filename=) }}" alt="Live Feed">
+    </section>
+
+    <section id="artifact-list">
+      <h2>Artifacts</h2>
+      <ul>
+        </ul>
+    </section>
+
+    <section id="artifact-details">
+      <h2>Artifact Details</h2>
+      <div id="artifact-info">
+        </div>
+    </section>
+
+    <section id="notifications">
+      <h2>Detection Notifications</h2>
+      <ul id="notification-list">
+        </ul>
+    </section>
+
+    <section id="predictive-maintenance">
+      <h2>Predictive Maintenance</h2>
+      <div id="maintenance-info">
+        </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
