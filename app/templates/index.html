@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Maintenance Dashboard</title>
@@ -12,7 +12,14 @@
   <main>
     <section id="live-feed">
       <h2>Live Feed</h2>
-      <img id="feed-image" src="{{ url_for('static', filename=) }}" alt="Live Feed">
+       <img id="feed-image" src=" " alt="Live Feed"> 
+      <img id="feed-image-0" src="" alt="Camera-0">
+      <img id="feed-image-1" src="" alt="Camera 1">
+    </section>
+    <section id="live-feed">
+      <h2>Live Feed</h2>
+      <img id="feed-image-0" src="" alt="Camera 0">
+      <img id="feed-image-1" src="" alt="Camera 1">
     </section>
 
     <section id="artifact-list">
@@ -26,7 +33,7 @@
       <div id="artifact-info">
         </div>
     </section>
-
+    
     <section id="notifications">
       <h2>Detection Notifications</h2>
       <ul id="notification-list">
@@ -41,6 +48,174 @@
   </main>
 
   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #282c34; /* Darker background */
+            color: #e9ecef; /* Light text color */
+        }
+
+        .header {
+            text-align: center;
+            background-color: #373648;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding: 10px 40px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #date-time {
+            font-size: 1rem;
+        }
+
+        .notification-bar {
+            background-color: #FF0000;
+            height: 40px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 90%;
+            transition: background-color 0.5s ease;
+        }
+
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .camera-section, .table-section, .notification-section, .density-section, .maintenance-section, .graph-section, .value-section {
+            background-color: #343a40; /* Slightly lighter gray for sections */
+            border-radius: 10px;
+            padding: 10px;
+            min-height: 150px;
+            text-align: center;
+        }
+
+        .title {
+            background-color: #495057; /* Darker title background */
+            color: #fff;
+            padding: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .camera-section {
+            flex: 2; /* Larger portion for live feed */
+            max-width: 70%;
+            order: 1; /* Place at the beginning */
+        }
+
+        .notification-section {
+            flex: 1; /* Smaller portion for notifications */
+            max-width: 25%;
+            order: 2; /* Place next to live feed */
+        }
+
+        .table-section {
+            width: 100%; /* Full width */
+            order: 3; /* Place below live feed and notifications */
+        }
+
+        .table-section table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table-section th, .table-section td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .density-section, .maintenance-section {
+            flex: 1; /* Equal widths for density and maintenance */
+            max-width: 48%;
+            order: 4; /* Place these sections in the next row */
+        }
+
+        .graph-section {
+            flex: 2; /* Larger portion for the graph */
+            max-width: 70%;
+            order: 5; /* Place below density and maintenance */
+        }
+
+        .value-section {
+            flex: 1; /* Smaller portion for the value */
+            max-width: 25%;
+            order: 6; /* Place next to the graph */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Admin Dashboard
+
+      <span id="date-time"></span>
+    </div>
+    <!-- <div class="notification-bar" id="warning-bar"></div> -->
+
+    <div class="main">
+        <div class="camera-section">
+            <div class="title">Camera-1</div>
+            <img id="feed-image" src="{{ url_for('video_feed') }}" alt="Live Feed"> 
+        </div>
+
+        <div class="notification-section">
+          <div class="title">Notification</div>
+        </div>
+
+        <div class="table-section">
+            <div class="title">List of Exhibits</div>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Exhibit 1</td>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                    <td>Exhibit 2</td>
+                    <td>Inactive</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="density-section">
+            <div class="title">Density</div>
+        </div>
+
+        <div class="maintenance-section">
+            <div class="title">Maintenance</div>
+        </div>
+
+        <div class="graph-section">
+            <div class="title">Graph</div>
+        </div>
+
+        <div class="value-section">
+            <div class="title">Value</div>
+        </div>
+    </div>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

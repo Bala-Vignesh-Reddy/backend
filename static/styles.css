@@ -45,9 +45,9 @@ section h2 {
 }
 
 #live-feed {
-  width: 640px;
-  height: 480px;
-  border: none; /* Remove the border */
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 #feed-image {
@@ -135,3 +135,59 @@ section h2 {
   border-radius: 4px;
   cursor: pointer;
 }
+
+#camera-select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #333;
+  background-color: #282828;
+  color: #eee;
+}
+
+/* ... other styles ... */
+
+#live-feed {
+  display: flex; /* Use flexbox for layout */
+  width: 100%; /* Take full width */
+  margin-bottom: 20px;
+}
+
+#live-feed img {
+  width: 50%; /* Each image takes 50% width */
+  height: auto;
+  object-fit: contain;
+  margin-right: 10px; /* Add spacing between images */
+  transition: all 0.3s ease; /* Add transition for smooth scaling */
+}
+
+#live-feed img:hover {
+  transform: scale(1.05); /* Scale up on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow on hover */
+  cursor: pointer;
+}
+
+#live-feed img:last-child {
+  margin-right: 0; /* Remove margin from the last image */
+}
+
+/* Full-screen styles */
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: #181818;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen img {  /* Adjust image size in fullscreen */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+} 
